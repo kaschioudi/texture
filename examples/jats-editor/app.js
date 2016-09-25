@@ -15,7 +15,7 @@ App.Prototype = function() {
 
   this.getDefaultState = function() {
     return {
-      documentId: 'elife-00007',
+	documentId: document.querySelector('meta[name=jobId').getAttribute('content'),
     };
   };
 

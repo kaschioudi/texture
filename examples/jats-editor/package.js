@@ -1,7 +1,7 @@
 'use strict';
 
 var PublisherPackage = require('../../packages/publisher/package');
-var ExampleXMLStore = require('../ExampleXMLStore');
+var ExampleXMLStore = require('../XMLPSXMLStore');
 var path = require('path');
 
 module.exports = {
