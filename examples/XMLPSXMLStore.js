@@ -3,11 +3,11 @@
 var oo = require('substance/util/oo');
 var request = require('substance/util/request');
 
-function ExampleXMLStore() {
+function XMLPSXMLStore() {
 
 }
 
-ExampleXMLStore.Prototype = function() {
+XMLPSXMLStore.Prototype = function() {
   this.readXML = function(documentId, cb) {
     var cached = localStorage.getItem(documentId);
     if (cached) {
@@ -16,13 +16,12 @@ ExampleXMLStore.Prototype = function() {
     request('GET', '/manager/xml/id/'+documentId, null, cb);
   };
 
-  // TODO make functional
   this.writeXML = function(documentId, xml, cb) {
-    localStorage.setItem(documentId, xml);
-    cb(null);
+    var data = {'content': xml};
+    request('POST', '/manager/xml/id/'+documentId, data, cb);
   };
 };
 
-oo.initClass(ExampleXMLStore);
+oo.initClass(XMLPSXMLStore);
 
-module.exports = ExampleXMLStore;
+module.exports = XMLPSXMLStore;
